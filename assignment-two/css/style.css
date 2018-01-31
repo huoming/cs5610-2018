@@ -1,0 +1,103 @@
+body {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+input.form-control {
+    margin-bottom: 5px;
+}
+
+.cl-form-bottom-padding{
+    margin-bottom: 2em;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.cl-container-padding {
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
+
+.cl-blue-navbar{
+    background-color: #337ab7;
+}
+
+.cl-text-white{
+    color: #fff;
+}
+
+.cl-text-black{
+    color: #000000;
+}
+
+.cl-text-bold{
+    font-weight: bold;
+}
+
+.cl-icon-padding {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.cl-header-padding{
+    padding-left: 5%;
+}
+
+.cl-full-width{
+    width: 100%;
+}
+
+.cl-widget-list-item{
+    padding-bottom: 20px;
+}
+
+.cl-v-divider{
+    border-right: 1px solid #808080;
+    height: 100%;
+}
+
+.cl-widget-heading{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.cl-widget-paragraph{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.cl-height{
+    height: 100%;
+    min-height: 100%;
+}
+
+.cl-relative-position{
+    position: relative;
+}
+.cl-absolute-position{
+    position: absolute;
+}
+.cl-widget-list-icons{
+    top: 0px;
+    right: 0px;
+    z-index: 10;
+    background-color: white;
+}
+.cl-zero-right-padding{
+    padding-right: 0px;
+}
+
+.cl-list-item-borderless {
+    border-top: 0 none;
+    border-bottom: 0 none;
+    border-left: 0 none;
+    border-right: 0 none;
+}
+
+.cl-widget-images{
+    display: inline;
+    width: 85%;
+    z-index: 100;
+    position: relative;
+}

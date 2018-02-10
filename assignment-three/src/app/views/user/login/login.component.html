@@ -1,0 +1,37 @@
+<h1> Login </h1>
+<!--
+<label>Username</label>
+<input [(ngModel)]="username"
+       placeholder="alice"/>
+<br/>
+<label>Password</label>
+<input [(ngModel)]="password"
+       type="password"
+       placeholder="1234@###"/>
+<br/>
+<button (click)="login(username, password)">Login</button>
+-->
+
+<div *ngIf="errorFlag"
+     class="alert alert-danger">
+  {{errorMsg}}
+
+</div>
+
+
+
+<form (ngSubmit) = "login()" #f="ngForm">
+  <label>Username</label>
+  <input   placeholder="username" name="username" type="text" class="form-control" ngModel required #username="ngModel"/>
+
+  <label>Password</label>
+  <input   placeholder="password" name="password" type="text" class="form-control" ngModel required #password="ngModel"/>
+
+  <span class="help-block" *ngIf="!username.valid && username.touched">
+        Please enter username!
+  </span>
+  <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.valid">Login</button>
+
+  {{f.valid}}
+
+</form>

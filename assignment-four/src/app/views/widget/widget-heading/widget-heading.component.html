@@ -1,0 +1,6 @@
+<div [ngSwitch] = "widget.size">
+   <h1 *ngSwitchCase="1">{{widget.text}}</h1>
+   <h2 *ngSwitchCase="2">{{widget.text | myToUpperCase}} </h2>
+   <h3 *ngSwitchCase="3">{{widget.text}}</h3>
+   <h4 *ngSwitchCase="4">{{widget.text}}</h4>
+</div>

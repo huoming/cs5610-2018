@@ -1,11 +1,23 @@
 <h1>Register</h1>
+
+<div *ngIf="errorFlag"
+     class="alert alert-danger">
+  {{errorMsg}}
+
+</div>
+
 <label>Username</label>
-<input placeholder="alice"/>
+<input [(ngModel)]="user.username"
+       placeholder="alice"/>
 <br/>
 <label>Password</label>
-<input type="password" placeholder="1234@###"/>
+<input [(ngModel)]="user.password"
+       type="password"
+       placeholder="1234@###"/>
 <br/>
-<label>Retype Password</label>
-<input type="password" placeholder="1234@###"/>
+<label>Verify Password</label>
+<input [(ngModel)]="v_password"
+       type="password"
+       placeholder="1234@###"/>
 <br/>
-<button>Register</button>
+<button (click)="register(v_password)">Login</button>

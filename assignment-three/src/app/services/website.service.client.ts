@@ -16,10 +16,10 @@ export class WebsiteService {
 
   createWebsite(userId: String, website: Website) {
 
-    const new_website = {
+    const new_website: Website = {
       _id: (new Date()).getTime() + '',
       name: website.name,
-      developId: website.developId,
+      developerId: website.developerId,
       description: website.description
     };
 
@@ -29,7 +29,7 @@ export class WebsiteService {
   findWebsitesByUser(userId: String) {
     const resultSet = [];
     for ( const i in this.websites) {
-      if (this.websites[i].developId === userId) {
+      if (this.websites[i].userId === userId) {
         resultSet.push(this.websites[i]);
       }
     }
@@ -38,7 +38,7 @@ export class WebsiteService {
 
   findWebsitesByUser2(userId: String) {
    return this.websites.filter(function (website) {
-     return website.developId === userId;
+     return website.userId === userId;
    });
   }
 

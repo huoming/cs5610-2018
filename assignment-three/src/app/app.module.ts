@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import {routing} from './app.routing';
+
 import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -14,7 +16,6 @@ import { ProfileComponent } from './views/user/profile/profile.component';
 import { WebsiteListComponent } from './views/website/website-list/website-list.component';
 import { WebisteEditComponent } from './views/website/webiste-edit/webiste-edit.component';
 import { WebisteNewComponent } from './views/website/webiste-new/webiste-new.component';
-
 
 
 // client side services

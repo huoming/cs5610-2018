@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
+
 import {UserService} from '../../../services/user.service.client';
 import {User} from '../../../models/user.model.client';
+
 import {NgForm} from '@angular/forms';
 import { ViewChild } from '@angular/core';
 
@@ -11,7 +13,7 @@ import { ViewChild } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('f') loginForm: NgForm;
+  @ViewChild('f') myloginForm: NgForm;
   username: String; // see usage as two-way data binding
   password: String; // see usage as two-way data binding
 
@@ -31,8 +33,8 @@ export class LoginComponent implements OnInit {
   }*/
 
   login() {
-    this.username = this.loginForm.value.username;
-    this.password = this.loginForm.value.password;
+    this.username = this.myloginForm.value.username;
+    this.password = this.myloginForm.value.password;
     alert(this.username);
 
     const user: User = this.userService.findUserByCredential(this.username, this.password);

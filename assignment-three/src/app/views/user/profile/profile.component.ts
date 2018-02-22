@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
 import {UserService} from '../../../services/user.service.client';
 import {User} from '../../../models/user.model.client';
 
@@ -20,7 +21,6 @@ export class ProfileComponent implements OnInit {
   }
   ngOnInit() {
       this.route.params.subscribe(params => {
-        //alert('userId is' + this.userId);
         this.user = this.userService.findUserById(params['userId']);
       });
   }

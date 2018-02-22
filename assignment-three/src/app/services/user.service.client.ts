@@ -34,4 +34,13 @@ export class UserService {
         }
       }
     }
+
+    deleteUserById(userId: String) {
+      for (const i in this.users) {
+        if (this.users[i]._id === userId) {
+          const j = +i;
+          this.users.splice(j, 1);
+        }
+      }
+    }
 }

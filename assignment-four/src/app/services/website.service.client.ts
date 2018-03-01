@@ -4,14 +4,21 @@ import {WEBSITES} from './website.mock';
 import {Http, Response} from '@angular/http';
 import "rxjs/Rx";
 
+import {environment} from '../../environments/environment';
+
 @Injectable()
-export class WebsiteServiceClient {
+export class WebsiteService {
   websites: Website[] = WEBSITES;
+
+  constructor(private http: Http){}
+
+  baseUrl = environment.baseUrl;
+
   findAllWebSites() {
     return this.websites;
   }
 
-  updateWebsite(userId: String, newWebsite: Website){
+  updateWebsite(userId: String, newWebsite: Website) {
     const url =  'http://localhost:3100/api/user/' + userId + '/website/' + newWebsite._id;
     return this.http.put(url, newWebsite).map((response: Response) => {
       return response.json();
@@ -47,5 +54,5 @@ export class WebsiteServiceClient {
     });
   }
 
-  constructor(private http: Http){}
+
 }

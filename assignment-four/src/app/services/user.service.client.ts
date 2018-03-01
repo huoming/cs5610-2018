@@ -30,6 +30,9 @@ export class UserService {
     }
 
     updateUser(user) {
-      return user;
+      const url =  'http://localhost:3100/api/user/' + user._id;
+      return this.http.put(url, user).map((response: Response) => {
+        return response.json();
+      });
     }
 }

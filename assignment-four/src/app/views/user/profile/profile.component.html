@@ -2,8 +2,6 @@
 
 <h2> user: {{user.username}} </h2>
 
-{{user._id}}
-
 <a routerLink="/profile/{{user._id}}/website">Websites</a>
 <br/>
 
@@ -12,7 +10,6 @@
 
 <input [(ngModel)]="user.password" type="password"/>
 <br/>
-
 
 
 <input [(ngModel)]="user.firstName"/>

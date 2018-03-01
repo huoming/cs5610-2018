@@ -6,7 +6,8 @@ const http = require('http');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(express.static(path.join(__dirname, 'dist')));
 
 //CORS
 app.use(function(reg, res, next){
@@ -28,12 +29,18 @@ const server = http.createServer(app);
 //});
 
 
+//handle GET UR
+
 var hello = require('./hello');
 hello(app);
 
 
 require("./assignment/app")(app);
 
+
 server.listen( port , function() {
   console.log('Node app is running on port', app.get('port'))});
+
+
+
 

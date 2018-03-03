@@ -1,0 +1,59 @@
+
+
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+        <p class="navbar-text pull-left">
+          <a [routerLink]="['/profile']" class="navbar-link">
+            <span class="glyphicon glyphicon-chevron-left pull-right"> </span>
+          </a>
+        </p>
+
+        <span>
+        <!--heading on the nav bar-->
+        <p class="navbar-header pull-left">
+            <a class="navbar-brand thick">
+                <b>Websites</b>
+            </a>
+        </p>
+        </span>
+    <!--tick mark-->
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/user', 'website', 'new']" class="navbar-link">
+        <span class="glyphicon glyphicon-plus"></span>
+      </a>
+    </p>
+
+  </div>
+</nav>
+
+<!--Body of the page-->
+
+<div class="container">
+  <ul class="list-group">
+    <li *ngFor="let website of websites" class="list-group-item">
+      <a [routerLink]="['/user', 'website', website._id, 'page']">
+        {{website.name}}
+      </a>
+      <a [routerLink]="['/user', 'website', website._id, 'page']" class="pull-right">
+        <span class="glyphicon glyphicon-play nudge-right-10px"></span>
+      </a>
+      <a [routerLink]="['/user', 'website', website._id]" class="pull-right">
+        <span class="glyphicon glyphicon-cog  "></span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- Footer -->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/profile']">
+        <span class="glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+  </div>
+</nav>
+

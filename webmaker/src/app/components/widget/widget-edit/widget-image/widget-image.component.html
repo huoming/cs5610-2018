@@ -1,0 +1,92 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-page-pages">
+  <div class="container-fluid">
+
+
+      <p class="navbar-text pull-left ">
+        <a [routerLink]="['/user', 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left glyphicon-chevron-left-pages-page"> </span>
+        </a>
+      </p>
+
+      <a class="navbar-brand" id="navbar-text-page-pages" href="#">
+        Widget Edit
+      </a>
+
+      <p class="navbar-text pull-right">
+        <a class="navbar-link" (click)="updateWidget()">
+          <span class="glyphicon glyphicon-ok glyphicon-plus-pages-page"> </span>
+        </a>
+      </p>
+
+
+  </div>
+</nav>
+
+<div class="container">
+
+  <form>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="Name" name="name" [(ngModel)]="widget.name">
+    </div>
+
+    <div class="form-group">
+      <label for="text">Text</label>
+      <input type="text" class="form-control" id="text" placeholder="Widget text" name="text" [(ngModel)]="widget.text">
+    </div>
+
+    <div class="form-group">
+      <label for="size">Size</label>
+      <input type="text" class="form-control" id="size" placeholder="Widget size" name="size" [(ngModel)]="widget.size">
+    </div>
+
+    <div class="form-group">
+      <label for="url">URL</label>
+      <input type="text" class="form-control" id="url" placeholder="https://www.youtube.com/watch?v=WD0eofKKH4c" name="url" [(ngModel)]="widget.url">
+    </div>
+
+    <div class="form-group">
+      <label for="width">Width</label>
+      <input type="text" class="form-control" id="width" placeholder="100%" name="width" [(ngModel)]="widget.width">
+    </div>
+
+  </form>
+
+  <form ngNoForm action="{{baseUrl}}/api/upload" method="post" enctype="multipart/form-data">
+
+    <input  name="myFile"   type="file" class="form-control"/>
+    <input  name="widgetId" value="{{widgetId}}"   style="display: none"/>
+    <input  name="websiteId" value="{{websiteId}}"   style="display: none"/>
+    <input  name="pageId" value="{{pageId}}"   style="display: none"/>
+    <input  name="userId" value="{{userId}}"   style="display: none"/>
+    <button type="submit" class="btn btn-block btn-primary">Upload Image</button>
+    <br/>
+
+  </form>
+
+
+  <a class="btn btn-primary btn-block "
+
+     [routerLink]="['/user'+'/website/'+websiteId+'/page/'+pageId+'/widget/'+widgetId+'/flickr']" >Choose From Flickr</a>
+
+
+  <a class="btn btn-danger  btn-block" (click)="deleteWidget()">Delete</a>
+
+  <!--</form>-->
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom navbar-page-pages">
+  <div class="container-fluid">
+    <div class="navbar-footer">
+
+      <p class="navbar-text pull-right">
+        <a [routerLink]="['/profile']" class="navbar-link">
+          <span class="glyphicon glyphicon-user glyphicon-user-page-pages pull-right"> </span>
+        </a>
+      </p>
+
+    </div>
+  </div>
+</nav>

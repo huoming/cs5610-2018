@@ -1,0 +1,67 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-page-pages">
+  <div class="container-fluid">
+
+      <p class="navbar-text pull-left">
+        <a [routerLink]="['/user', 'website', websiteId, 'page', pageId, 'widget']"
+            class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left glyphicon-chevron-left-pages-page"> </span>
+        </a>
+      </p>
+
+      <a class="navbar-brand" id="navbar-text-page-pages" href="#">
+        Widget Edit
+      </a>
+
+      <p class="navbar-text pull-right ">
+        <a class="navbar-link" (click)="updateWidget()">
+          <span class="glyphicon glyphicon-ok glyphicon-plus-pages-page"> </span>
+        </a>
+      </p>
+
+  </div>
+</nav>
+
+<div class="container">
+  <form>
+    <div *ngIf=flag
+         class="alert alert-danger">
+      {{error}}
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Name" [(ngModel)]="widget.name">
+    </div>
+    <span class="alert-class"
+          *ngIf=flag>{{alert}}</span>
+
+    <div class="form-group">
+      <label for="text">Text</label>
+      <input type="text" class="form-control" id="text" name="text" placeholder="Widget text" [(ngModel)]="widget.text">
+    </div>
+
+    <div class="form-group">
+      <label for="size">Size</label>
+      <input type="text" class="form-control" id="size" name="size" placeholder="Widget text" [(ngModel)]="widget.size">
+    </div>
+
+    <a class="btn btn-danger  btn-block"
+       (click)="deleteWidget()"
+       [routerLink]="['/user', 'website', websiteId, 'page', pageId, 'widget']">Delete</a>
+
+  </form>
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom navbar-page-pages">
+  <div class="container-fluid">
+    <div class="navbar-footer">
+
+      <p class="navbar-text pull-right">
+        <a [routerLink]="['/profile']" class="navbar-link">
+          <span class="glyphicon glyphicon-user glyphicon-user-page-pages pull-right"> </span>
+        </a>
+      </p>
+
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,106 @@
+<nav class="navbar-default navbar-fixed-top navbar-page-pages">
+  <div class="container-fluid">
+    <!--<div class="navbar-header complete-width">-->
+
+      <p class="navbar-text pull-left ">
+        <a [routerLink]="['/user', 'website', websiteId, 'page']" class="navbar-link">
+          <span class="glyphicon glyphicon-chevron-left glyphicon-chevron-left-pages-page"> </span>
+        </a>
+      </p>
+
+      <a class="navbar-brand" id="navbar-text-page-pages">
+        Widgets
+      </a>
+
+      <p class="navbar-text pull-right">
+        <a [routerLink]="['/user', 'website', websiteId, 'page', pageId, 'widget', 'new']" class="navbar-link">
+          <span class="glyphicon glyphicon-plus glyphicon-plus-pages-page"> </span>
+        </a>
+      </p>
+
+    <!--</div>-->
+  </div>
+</nav>
+
+<div class="container">
+<div class="widget-list" appSortable (newIndexes)="reorderWidgets($event)">
+  <div *ngFor="let widget of widgets | orderBy">
+
+    <div [ngSwitch]="widget.type">
+
+      <div class="jga-widget">
+
+        <div class="jga-widget-tool">
+          <a [routerLink]="['/user', 'website', websiteId, 'page', pageId, 'widget', widget._id]">
+            <span class="glyphicon glyphicon-cog"> </span>
+          </a>
+          <span class="glyphicon glyphicon-align-justify"></span>
+        </div>
+
+        <div *ngSwitchCase="'Header'">
+          <div [ngSwitch]="widget.size">
+            <h1 *ngSwitchCase="1">{{widget.text}}</h1>
+            <h2 *ngSwitchCase="2">{{widget.text}}</h2>
+            <h3 *ngSwitchCase="3">{{widget.text}}</h3>
+            <h4 *ngSwitchCase="4">{{widget.text}}</h4>
+            <h5 *ngSwitchCase="5">{{widget.text}}</h5>
+            <h6 *ngSwitchCase="6">{{widget.text}}</h6>
+          </div>
+        </div>
+
+        <div *ngSwitchCase="'YouTube'" class="youtube-widget">
+          <iframe width="560" height="315" [src]="widget.url | safe" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div *ngSwitchCase="'Image'">
+          <img [src] = "widget.url" width= "widget.width"/>
+        </div>
+
+        <div *ngSwitchCase="'HTML'" [innerHTML]="widget.text"></div>
+
+        <div *ngSwitchCase="'Text'">
+          <div *ngIf="widget.formatted">
+            <quill-editor [(ngModel)]="widget.text" name="text"></quill-editor>
+          </div>
+
+          <input *ngIf="!widget.formatted && (!widget.rows || widget.rows===1)"
+                 placeholder="{{widget.placeholder}}" class="form-control"/>
+
+          <textarea *ngIf="!widget.formatted && (widget.rows > 1)"
+                    rows="{{widget.rows}}" placeholder="{{widget.placeholder}}"
+                    class="form-control">{{widget.text}}</textarea>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</div>
+
+  <nav class="navbar navbar-default navbar-fixed-bottom navbar-page-pages">
+    <div class="container-fluid">
+      <div class="navbar-footer">
+
+        <p class="navbar-text pull-left">
+          <a [routerLink]="['/profile']" class="navbar-link">
+            <span class="glyphicon glyphicon-play"> </span>
+          </a>
+        </p>
+
+        <p class="navbar-text pull-left">
+          <a href="#profile" class="navbar-link">
+            <span class="glyphicon glyphicon-eye-open"> </span>
+          </a>
+        </p>
+
+        <p class="navbar-text pull-right">
+          <a [routerLink]="['/profile']" class="navbar-link">
+            <span class="glyphicon glyphicon-user glyphicon-user-page-pages"> </span>
+          </a>
+        </p>
+
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,53 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!--Left arrow-->
+    <p class="navbar-text pull-left">
+      <a [routerLink]="['/user', 'website']" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </p>
+    <span>
+        <!--heading on the nav bar-->
+
+
+        <p class="navbar-header pull-left">
+            <a class="navbar-brand thick">
+                <b>Pages</b>
+            </a>
+        </p>
+        </span>
+    <!--tick mark-->
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/user', 'website', websiteId, 'page', 'new']">
+        <span class="glyphicon glyphicon-plus"></span>
+      </a>
+    </p>
+
+  </div>
+</nav>
+
+<!--Body of the page-->
+<div class="container">
+  <ul class="list-group">
+    <li *ngFor = "let page of pages" class="list-group-item">
+      <a [routerLink]="['/user', 'website', websiteId, 'page', page._id, 'widget']">
+        {{page.name}}
+      </a>
+      <a [routerLink]="['/user', 'website', websiteId, 'page', page._id]" class="pull-right">
+        <span class="glyphicon glyphicon-cog"></span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- Footer -->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/profile']">
+        <span class="glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+
+  </div>
+</nav>

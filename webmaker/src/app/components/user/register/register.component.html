@@ -1,0 +1,55 @@
+
+<div class="container">
+  <h1>Register</h1>
+
+  <div *ngIf="error"
+       class="alert alert-danger">
+    {{error}}
+  </div>
+
+  <form (ngSubmit)="register()" #f="ngForm">
+    <input
+           name="username"
+           placeholder="username"
+           type="text"
+           class="form-control"
+           ngModel
+           required
+           #name="ngModel"
+           />
+    <span class="help-block" *ngIf="!name.valid && name.touched">*Please enter username!</span>
+
+    <input
+           placeholder="password"
+           name="password"
+           type="password"
+           class="form-control"
+           ngModel
+           required
+           #pass="ngModel"
+           />
+    <span class="help-block" *ngIf="!pass.valid && pass.touched">*Please enter password!</span>
+
+    <input
+           name="vpassword"
+           placeholder="verify password"
+           type="password"
+           class="form-control"
+           ngModel
+           required
+           #vpass="ngModel"
+           />
+    <span class="help-block" *ngIf="!vpass.valid && vpass.touched">*Please enter password again!</span>
+
+    <button class="btn btn-primary btn-block"
+            type="submit"
+            [disabled]="!f.valid">Register</button>
+
+
+  <p> </p>
+  <a class="btn btn-danger btn-block"
+     [routerLink]="['/login']">Cancel</a>
+
+  </form>
+
+</div>

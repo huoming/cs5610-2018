@@ -1,0 +1,75 @@
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!--Left arrow-->
+    <p class="navbar-text pull-left">
+      <a [routerLink]="['/user', 'website']" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </p>
+    <span>
+        <!--heading on the nav bar-->
+        <p class="navbar-header pull-left">
+            <a class="navbar-brand thick">
+                <b>New Website</b>
+            </a>
+        </p>
+        </span>
+    <!--tick mark-->
+    <p class="navbar-text pull-right">
+      <a (click)="createWebsite()"
+         class="navbar-link">
+        <span class="glyphicon glyphicon-ok"></span>
+      </a>
+    </p>
+
+  </div>
+</nav>
+
+
+<div class="container">
+  <div *ngIf=flag
+       class="alert alert-danger">
+        {{error}}
+  </div>
+  <form novalidate name="model.myform">
+    <div class="form-group">
+      <label for="Name">Name</label>
+      <input [(ngModel)]="website.name"
+             type="text"
+             class="form-control"
+             id="Name"
+             name="name"
+             placeholder="Name"
+             required>
+      <span class="alert-class"
+            *ngIf=flag>{{alert}}</span>
+    </div>
+
+
+
+    <p></p>
+    <div class="form-group">
+      <label
+        for="Description">Description</label>
+      <textarea [(ngModel)]="website.description"
+                type="text"
+                class="form-control"
+                id="Description"
+                name="description"
+                placeholder="Description"></textarea>
+    </div>
+  </form>
+</div>
+
+<!-- Footer -->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <p class="navbar-text pull-right">
+      <a href="/profile">
+        <span class="glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+
+  </div>
+</nav>

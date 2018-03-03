@@ -1,0 +1,59 @@
+
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!--Left arrow-->
+    <p class="navbar-text pull-left">
+      <a [routerLink]="['/user', 'website', websiteId, 'page', pageId, 'widget', widgetId]" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </p>
+    <span>
+        <!--heading on the nav bar-->
+        <p class="navbar-header pull-left">
+            <a class="navbar-brand thick">
+                <b>Search Flickr</b>
+            </a>
+        </p>
+        </span>
+  </div>
+</nav>
+
+<!--!!Material on the page!!-->
+<div class = "container">
+  <div class="input-group">
+    <input [(ngModel)]="searchText" type="text" class="form-control">
+    <span class="input-group-btn">
+            <a (click)="searchPhotos()" class="btn btn-default" type="button">
+                <span class="glyphicon glyphicon-search"></span>
+            </a>
+        </span>
+  </div>
+
+  <div class="row">
+    <div *ngFor = "let pic of photos['photo']"
+         class="col-xs-4">
+      <img    (click)="selectPhoto(pic)"
+              width="100%"
+              [src] = "['https://farm' + pic.farm + '.staticflickr.com/' + pic.server + '/' + pic.id + '_' + pic.secret + '_s.jpg']"/>
+
+              <!--[src] = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "s.jpg"/>-->
+      <p></p>
+    </div>
+  </div>
+
+</div>
+<!-- Footer -->
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <!--Play Symbol-->
+    <!--User Symbol-->
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/profile']">
+        <span class="glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+
+  </div>
+</nav>

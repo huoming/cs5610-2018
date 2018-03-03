@@ -1,0 +1,81 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    <!--heading on the nav bar-->
+    <p class="navbar-header pull-left">
+      <a class="navbar-brand thick">
+        <b>Profile</b>
+      </a>
+    </p>
+
+    <!--tick mark-->
+    <p class="navbar-text pull-right">
+      <a (click)="updateUser()"
+         class="navbar-link">
+        <span class="glyphicon glyphicon-ok"></span>
+      </a>
+    </p>
+
+  </div>
+</nav>
+
+
+<div class="container pushdown">
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input [(ngModel)]="username"
+             type="text"
+             class="form-control"
+             id="username"
+             placeholder="walice">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input [(ngModel)]="email"
+             type="email"
+             class="form-control"
+             id="email"
+             placeholder="alice.wonderland@unicorn.com">
+    </div>
+
+
+    <div class="form-group">
+      <label for="first-name">First Name</label>
+      <input [(ngModel)]="firstName"
+             type="text"
+             class="form-control"
+             id="first-name"
+             placeholder="Alice">
+    </div>
+
+    <div class="form-group">
+      <label for="last-name">Last Name</label>
+      <input [(ngModel)]="lastName"
+             type="text"
+             class="form-control"
+             id="last-name"
+             placeholder="Wonderland">
+    </div>
+
+  <a class="btn btn-primary btn-block"
+     [routerLink]="['/user', 'website']">Websites</a>
+  <a (click) = "logout()" class="btn btn-danger btn-block">Logout</a>
+  <a class="btn btn-danger btn-block "
+     (click)= "deleteUser()">un-register</a>
+
+</div>
+
+<!-- Footer -->
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/profile']">
+        <span class="glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+
+  </div>
+</nav>

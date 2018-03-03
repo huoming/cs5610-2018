@@ -1,0 +1,71 @@
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!--Left arrow-->
+    <p class="navbar-text pull-left">
+      <a [routerLink]="['/user', 'website', websiteId, 'page']" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </p>
+    <span>
+        <!--heading on the nav bar-->
+        <p class="navbar-header pull-left">
+            <a class="navbar-brand thick">
+                <b>New Page</b>
+            </a>
+        </p>
+        </span>
+    <!--tick mark-->
+    <p class="navbar-text pull-right">
+      <a (click)="createPage()" class="navbar-link">
+        <span class="glyphicon glyphicon-ok"></span>
+      </a>
+    </p>
+
+  </div>
+</nav>
+
+
+<div class="container">
+  <div class="container">
+    <div *ngIf="errFlag" class="alert alert-danger">
+      {{error}}
+    </div>
+    <form novalidate name="model.myform">
+      <div class="form-group">
+        <label for="Name">Name</label>
+        <input  [(ngModel)]="page.name"
+                type="text"
+                class="form-control"
+                id="Name"
+                name="name"
+                placeholder="Page Name" required>
+        <span class="alert-class"
+              *ngIf="errFlag">{{alert}}</span>
+      </div>
+    </form>
+
+    <form>
+      <div class="form-group">
+        <label for="PageTitle">Title</label>
+        <input  [(ngModel)]="page.title"
+                type="text"
+                class="form-control"
+                id="PageTitle"
+                name="title"
+                placeholder="Page Title">
+      </div>
+    </form>
+
+  </div>
+
+  <!-- Footer -->
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+      <p class="navbar-text pull-right">
+        <a [routerLink]="['/user']">
+          <span class="glyphicon glyphicon-user"></span>
+        </a>
+      </p>
+    </div>
+  </nav>

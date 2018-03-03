@@ -1,0 +1,82 @@
+
+
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!--Left arrow-->
+    <p class="navbar-text pull-left">
+      <a [routerLink]="['/user', 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </p>
+    <span>
+        <!--heading on the nav bar-->
+        <p class="navbar-header pull-left">
+            <a class="navbar-brand thick">
+                <b>Widget Edit</b>
+            </a>
+        </p>
+        </span>
+    <!--tick mark-->
+    <p class="navbar-text pull-right">
+      <a (click) = "updateWidget()" class="navbar-link">
+        <span class="glyphicon glyphicon-ok"></span>
+      </a>
+    </p>
+
+  </div>
+</nav>
+
+
+<div class="container">
+  <div *ngIf="flag"
+       class="alert alert-danger">
+    {{error}}
+  </div>
+  <form novalidate name="model.myform">
+    <div class="form-group">
+      <label for="Name">Name</label>
+      <input [(ngModel)]="widget.name"
+             type="text"
+             class="form-control"
+             id="Name"
+             name="widname"
+             placeholder="Name"
+             required>
+      <span class="alert-class"
+            *ngIf="flag">{{alert}}</span>
+    </div>
+    <!--<div ng-model="model.widget.text"-->
+         <!--text-angular-->
+         <!--ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],-->
+        <!--['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],-->
+        <!--['indent','outdent'],['html']]">-->
+    <!--</div>-->
+
+    <!-- use with ngModel -->
+    <quill-editor [(ngModel)]="widget.text" name="text"></quill-editor>
+                  <!--[options]="editorOptions"-->
+                  <!--(blur)="onEditorBlured($event)"-->
+                  <!--(focus)="onEditorFocused($event)"-->
+                  <!--(ready)="onEditorCreated($event)"-->
+                  <!--(change)="onContentChanged($event)"-->
+  </form>
+  <p></p>
+
+  <a class="btn btn-danger btn-block "
+     ng-click="model.deleteWidget(model.widget)">Delete</a>
+
+</div>
+
+<!-- Footer -->
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/user']">
+        <span class="glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+
+  </div>
+</nav>

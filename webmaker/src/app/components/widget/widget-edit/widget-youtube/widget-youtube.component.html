@@ -1,0 +1,99 @@
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!--Left arrow-->
+    <p class="navbar-text pull-left">
+      <a [routerLink]="['/user', 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </p>
+    <span>
+        <!--heading on the nav bar-->
+        <p class="navbar-header pull-left">
+            <a class="navbar-brand thick">
+                <b>Widget Edit</b>
+            </a>
+        </p>
+        </span>
+    <!--tick mark-->
+    <p class="navbar-text pull-right">
+      <a  (click) = "updateWidget()"
+          class="navbar-link">
+        <span class="glyphicon glyphicon-ok"></span>
+      </a>
+    </p>
+
+  </div>
+</nav>
+
+
+
+<div class="container">
+  <div *ngIf=flag
+       class="alert alert-danger">
+    {{error}}
+  </div>
+  <form novalidate name="model.myform">
+    <div class="form-group">
+      <label for="Name">Name</label>
+      <input [(ngModel)]="widget.name"
+             type="text"
+             class="form-control"
+             id="Name"
+             name="name"
+             required>
+      <span class="alert-class"
+            *ngIf=flag>{{alert}}</span>
+    </div>
+    <p></p>
+    <div class="form-group">
+      <label for="Title">Text</label>
+      <input  [(ngModel)]="widget.text"
+              type="text"
+              name="title"
+              class="form-control"
+              id="Title">
+    </div>
+    <p></p>
+    <div class="form-group">
+      <label for="URL">URL</label>
+      <input  [(ngModel)]="widget.url"
+              type="text"
+              name="url"
+              class="form-control"
+              id="URL"
+              placeholder="enter the youtube URL"
+      >
+    </div>
+  </form>
+
+
+  <form>
+    <div class="form-group">
+      <label for="width">Width</label>
+      <input [(ngModel)]="widget.width"
+             type="text"
+             name="width"
+             class="form-control"
+             id="width">
+    </div>
+  </form>
+
+
+  <a class="btn btn-danger btn-block "
+     (click)="deleteWidget()">Delete</a>
+
+
+</div>
+
+<!-- Footer -->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/profile']">
+        <span class="glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+
+  </div>
+</nav>

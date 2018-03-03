@@ -1,0 +1,71 @@
+
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!--Left arrow-->
+    <p class="navbar-text pull-left">
+      <a [routerLink]="['/user', 'website', websiteId, 'page', pageId, 'widget']" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </p>
+    <span>
+        <!--heading on the nav bar-->
+        <p class="navbar-header pull-left">
+            <a class="navbar-brand thick">
+                <b>Choose Widget</b>
+            </a>
+        </p>
+        </span>
+  </div>
+</nav>
+
+<!--Body of the page-->
+
+<div class="container">
+  <ul class="col-lg-12">
+    <a (click) = "createWidget('Header')">
+      Header
+    </a>
+  </ul>
+
+  <ul class="col-lg-12">
+    <a (click) = "createWidget('Image')">
+      Image
+    </a>
+  </ul>
+
+  <ul class="col-lg-12">
+    <a (click) = "createWidget('YouTube')">
+      YouTube
+    </a>
+  </ul>
+
+  <ul class="col-lg-12">
+    <a (click) = "createWidget('HTML')">
+      HTML
+    </a>
+  </ul>
+
+  <ul class="col-lg-12">
+    <a (click) = "createWidget('Text')">
+      Text
+    </a>
+  </ul>
+
+</div>
+
+
+<!-- Footer -->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+
+
+  <div class="container-fluid">
+
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/user']">
+        <span class="glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+
+  </div>
+</nav>

@@ -48,13 +48,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-/*// For Build: When we build, we serve this for dist
-const api = require('./server/routes/api');
-
-// Set our api routes
-app.use('/api', api);*/
-
-
 // Get port from environment and store in Express.
 const port = '5000' ;
 app.set('port', port);
@@ -66,14 +59,6 @@ const server = http.createServer(app);
 // Server side API
 var serverSide = require('./server/app');
 serverSide(app);
-
-
-
-/*// For Build: Catch all other routes and return the index file
-app.use('*', function (req, res) {
-  const index = path.join(__dirname, 'dist', 'index.html');
-  res.sendFile(index);
-});*/
 
 
 var PPORT = process.env.PORT || port;

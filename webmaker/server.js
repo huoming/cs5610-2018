@@ -30,7 +30,7 @@ app.use(passport.session());
 var connectionString = 'mongodb://127.0.0.1:27017/webmaker';
 /*var connectionString = 'mongodb://heroku-url';*/
 var mongoose = require("mongoose");
-mongoose.connect( connectionString);
+mongoose.createConnection( connectionString);
 
 // Parsers for POST data
 app.use(bodyParser.json());
@@ -48,15 +48,15 @@ app.use(function(req, res, next) {
   next();
 });
 
-// For Build: When we build, we serve this for dist
+/*// For Build: When we build, we serve this for dist
 const api = require('./server/routes/api');
 
 // Set our api routes
-app.use('/api', api);
+app.use('/api', api);*/
 
 
 // Get port from environment and store in Express.
-const port = '9000' ;
+const port = '5000' ;
 app.set('port', port);
 
 // Create HTTP server
@@ -69,11 +69,11 @@ serverSide(app);
 
 
 
-// For Build: Catch all other routes and return the index file
+/*// For Build: Catch all other routes and return the index file
 app.use('*', function (req, res) {
   const index = path.join(__dirname, 'dist', 'index.html');
   res.sendFile(index);
-});
+});*/
 
 
 var PPORT = process.env.PORT || port;

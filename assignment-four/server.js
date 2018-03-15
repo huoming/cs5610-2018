@@ -29,11 +29,6 @@ const server = http.createServer(app);
 //});
 
 
-//handle GET UR
-
-var hello = require('./hello');
-hello(app);
-
 
 require("./assignment/app")(app);
 

@@ -13,5 +13,5 @@ $ ng s -prod
 
 export const environment = {
   production: true,
-  baseUrl: "http://localhost:3100"
+  baseUrl: "http://your-heroku-url"
 };

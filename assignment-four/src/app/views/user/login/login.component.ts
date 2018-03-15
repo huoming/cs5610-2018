@@ -16,10 +16,12 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {}
 
   login(username: String, password: String) {
-      this.userService.findUserByCredentials(username, this.password)
+    //this.user = this.userService.findUserByCredentials(username, this.password);
+
+      this.userService.findUserByCredentials(this.username, this.password)
         .subscribe((user: User) => {
         if (user) {
-          console.log(user);
+          //console.log(user);
           this.router.navigate(['/profile', user._id ]);
         }
       });

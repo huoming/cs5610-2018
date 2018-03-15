@@ -20,7 +20,9 @@ export class LoginComponent implements OnInit {
   errorFlag: boolean;
   errorMsg = 'Invalid username or password !';
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {
+    this.username = "hello world!";
+  }
 
   /*login(username: String, password: String) {
     //alert('username: ' + username);
@@ -44,6 +46,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    //this.users = UserService.getAllUser();
+    console.log('login page!' + this.username);
   }
 
 }

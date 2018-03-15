@@ -30,12 +30,12 @@ app.set('port', port);
 
 // Create HTTP server
 const server = http.createServer(app);
+server.listen( port , () => console.log('Running on port 3200'));
 
-server.listen( port , () => console.log('Running on port 3100'));
+/*var dbServer = require('./test-mongodb/app');
+dbServer(app);*/
 
-//var serverSide = require("./server/test-mongodb/app");
-//serverSide(app);
-
+require('./test-mongodb/app')(app);
 
 
 // For Build: Catch all other routes and return the index file -- BUILDING

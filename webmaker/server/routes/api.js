@@ -1,6 +1,4 @@
-/**
- * Created by sesha on 6/2/17.
- */
+
 const express = require('express');
 const router = express.Router();
 
@@ -8,12 +6,5 @@ const router = express.Router();
 router.get('/', (req, res) => {
   res.send('api works');
 });
-
-
-
-//
-// router.get('/register', (req, res) => {
-//   res.send('register misplaced');
-// })
 
 module.exports = router;

@@ -29,7 +29,7 @@ export class WebsiteService {
   findWebsitesByUser(userId: String) {
     const resultSet = [];
     for ( const i in this.websites) {
-      if (this.websites[i].userId === userId) {
+      if (this.websites[i].developerId === userId) {
         resultSet.push(this.websites[i]);
       }
     }
@@ -38,7 +38,7 @@ export class WebsiteService {
 
   findWebsitesByUser2(userId: String) {
    return this.websites.filter(function (website) {
-     return website.userId === userId;
+     return website.developerId === userId;
    });
   }
 

@@ -1,5 +1,6 @@
 <h1> Login </h1>
 <!--
+<form>
 <label>Username</label>
 <input [(ngModel)]="username"
        placeholder="alice"/>
@@ -10,6 +11,7 @@
        placeholder="1234@###"/>
 <br/>
 <button (click)="login(username, password)">Login</button>
+</form>
 -->
 
 <div *ngIf="errorFlag"
@@ -21,10 +23,12 @@
 
 <form (ngSubmit) = "login()" #f="ngForm">
   <label>Username</label>
-  <input   placeholder="username" name="username" type="text" class="form-control" ngModel required #username="ngModel"/>
+  <input   placeholder="username" name="username" type="text" class="form-control"
+           ngModel required #username="ngModel"/>
 
   <label>Password</label>
-  <input   placeholder="password" name="password" type="text" class="form-control" ngModel required #password="ngModel"/>
+  <input   placeholder="password" name="password" type="text" class="form-control"
+           ngModel required #password="ngModel"/>
 
   <span class="help-block" *ngIf="!username.valid && username.touched">
         Please enter username!

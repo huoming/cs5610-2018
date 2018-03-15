@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Ming Home Page';
 
-  color = 'blue';
+  color = 'yellow';
 
   reorderItems(indexes) {
     console.log("start: " + indexes.startIndex);

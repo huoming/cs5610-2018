@@ -1,11 +1,11 @@
 
+
 module.exports = function (app) {
 
   app.put("/api/user/:userId", updateUserById);
 
   app.get("/api/user/hello", helloUser);
   app.get("/api/user/:userId", findUserById)
-  //app.get("/api/user", findAllUsers);
   app.get("/api/user", findUsers);
 
   var users = [
@@ -30,9 +30,9 @@ module.exports = function (app) {
     res.json(users);
   }
 
-  function findUsers(req, res){
-    var username = req.query["username"];
-    var password = req.query["password"];
+    function findUsers(req, res){
+      var username = req.query["username"];
+      var password = req.query["password"];
 
     var user = null;
 

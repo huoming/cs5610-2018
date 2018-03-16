@@ -48,6 +48,12 @@ app.use(function(req, res, next) {
   next();
 });
 
+
+//For Build: When we build, we serve this for dist
+const api = require('./server/routes/api');
+// Set our api routes	 // Set our api routes
+app.use('/api', api);
+
 // Get port from environment and store in Express.
 const port = '5000' ;
 app.set('port', port);

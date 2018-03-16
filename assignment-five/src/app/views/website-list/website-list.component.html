@@ -1,0 +1,22 @@
+
+  website-list
+
+  <br>
+  <label> Website Name: </label>
+  <br>
+  <br>
+  <input [(ngModel)]="websiteName" placeholder="name"/>
+  <button (click)="createWebsite(websiteName)">
+    Create WebSite
+  </button>
+
+  <ul>
+    <li *ngFor = "let website of websites" >
+      {{website.name}}
+      <br/>
+      <button (click)="deleteWebsite(website._id)">delete</button>
+      <button (click)="selectWebsite(website._id)">get</button>
+      <button (click)="updateWebsite(websiteName)">update</button>
+    </li>
+  </ul>
+

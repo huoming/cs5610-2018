@@ -1,0 +1,9 @@
+<h1> Widgets</h1>
+
+<div *ngFor = "let widget of widgets">
+  <div [ngSwitch]="widget.type">
+    <app-widget-heading *ngSwitchCase="'HEADING'" [widget]="widget"></app-widget-heading>
+    <app-widget-paragraph *ngSwitchCase="'PARAGRAPH'" [widget]="widget"></app-widget-paragraph>
+    <app-widget-iframe *ngSwitchCase="'IFRAME'" [widget]="widget"></app-widget-iframe>
+  </div>
+</div>

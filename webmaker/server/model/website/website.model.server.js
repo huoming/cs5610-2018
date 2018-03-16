@@ -7,7 +7,10 @@ module.exports = function () {
     var mongoose = require ("mongoose");
     var WebsiteSchema = require("./website.schema.server")();
     var Website =  mongoose.model("Website", WebsiteSchema); //mongo plurarizes
-    
+
+    var models = require("../models.server")();
+    var userModel = models.userModel;
+
     var api = {
         findAllWebsitesForUser: findAllWebsitesForUser,
         createWebsiteForUser: createWebsiteForUser,
@@ -47,61 +50,25 @@ module.exports = function () {
         return Website.findById (websiteId);
     }
 
+    //refactored version
+    function createWebsite(website)  {
+        var newWebsite = null;
+        return Website
+            .create(website)
+            .then(function (website) {
+                newWebsite = website;
+                userModel
+                    .findUserById(website.developerId)
+                    .then(function (user) {
+                        user.websites.push(newWebsite);
+                    });
+            });
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //
-    // function findUserById(userId) {
-    //     return User.findById({_id: userId});
-    // }
-    //
-    // function findUserByUsername(username) {
-    //     return User.findById({username: username});
-    // }
-    //
-    // function updateUser(userId, user) {
-    //     //ignore _id
-    //     delete user._id;
-    //     return User
-    //         .update({_id: userId},{
-    //             $set: {firstName : user.firstName,
-    //                     lastName : user.lastName,
-    //                     email: user.email}}
-    //         );
-    // }
-    //
-    //
-    // function deleteUser(userId) {
-    //     return User.remove({_id: userId});
-    // }
-    //
-    // //findOne returns only One (first one for multiple results)
-    // function findUserByCredentials(username, password) {
-    //     return User.findOne({username: username, password: password});
-    // }
-    //
-    // function createUser(user){
-    //    console.log("user.model.server.createUser()");
-    //     console.log(user);
-    //     return  User.create(user);
-    // }
-    
+    function findWebsiteForUser_new(userId) {
+        return Website
+            .find({developerId: userId})
+            .populate('developerId', 'username')
+            .exec();
+    }
 };

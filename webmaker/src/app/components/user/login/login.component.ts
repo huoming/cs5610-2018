@@ -20,8 +20,6 @@ export class LoginComponent implements OnInit {
   errorFlag: boolean;
   errorMsg = 'Invalid username or password !';
 
-  // TODO : fix authentication using pasport
-
   constructor(private router: Router, private _userService: UserService, private sharedService: SharedService){ }
 
   ngOnInit() {}

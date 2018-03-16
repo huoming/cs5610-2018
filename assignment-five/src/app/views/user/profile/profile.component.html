@@ -1,0 +1,24 @@
+<h1>Profile</h1>
+
+<h2> user: {{user.username}} </h2>
+
+{{user._id}}
+
+<a routerLink="/profile/{{user._id}}/website">Websites</a>
+<br/>
+
+<input [(ngModel)]="user.username"/>
+<br/>
+
+<input [(ngModel)]="user.password" type="password"/>
+<br/>
+
+
+
+<input [(ngModel)]="user.firstName"/>
+<br/>
+
+<input [(ngModel)]="user.lastName"/>
+<br/>
+
+<button (click)="updateUser(user)">Update</button>

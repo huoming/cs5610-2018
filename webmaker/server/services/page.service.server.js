@@ -1,10 +1,10 @@
 
 /* unlike angular, if w e ask by name, we cant get it */
 
-module.exports= function(app, models){
-    var pageModel = models.pageModel;
-    
-    
+module.exports= function(app){
+
+    var pageModel = require("../model/page/page.model.server");
+
     var pages = [
         { "_id": "321", "name": "Post 1", "websiteId": "456" },
         { "_id": "432", "name": "Post 2", "websiteId": "456" },

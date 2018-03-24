@@ -3,9 +3,10 @@ var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var bcrypt = require("bcrypt-nodejs");
 
-module.exports = function (app, models) {
+module.exports = function (app) {
 
-  var userModel = models.userModel;
+  var userModel = require("../model/user/user.model.server");
+
   var facebookConfig = {
     clientID     : 'process.env.FB_CLIENT_ID_WAM',
     clientSecret : 'process.env.FB_CLIENT_SECRET_WAM',
@@ -56,7 +57,7 @@ module.exports = function (app, models) {
   }
 
   function facebookStrategy(token, refreshToken, profile, done) {
-    model.userModel
+    userModel
       .findUserByFacebookId(profile.id)
       .then(
         function(user) {

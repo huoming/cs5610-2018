@@ -1,11 +1,9 @@
 
-/* unlike angular, if w e ask by name, we cant get it */
+/* unlike angular, if we ask by name, we cant get it */
 
-module.exports= function(app, models){
+module.exports= function(app){
 
-    var websiteModel = models.websiteModel;
-
-
+    var websiteModel = require("../model/website/website.model.server");
 
     var websites = [
         { "_id": "123", "name": "Facebook",    "developerId": "456" },

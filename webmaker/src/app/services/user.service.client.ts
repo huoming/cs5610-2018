@@ -1,6 +1,3 @@
-/**
- * Created by sesha on 6/2/17.
- */
 
 import {Injectable} from '@angular/core';
 import {Http, RequestOptions, Response} from '@angular/http';

@@ -1,6 +1,4 @@
-/**
- * Created by mayankrd on 8/16/17.
- */
+
 import {Http} from '@angular/http';
 import {Injectable} from '@angular/core';
 

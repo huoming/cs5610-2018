@@ -1,14 +1,12 @@
 
 /* unlike angular, if w e ask by name, we cant get it */
 
-module.exports= function(app, models){
+module.exports= function(app){
 
-    var widgetModel = models.widgetModel;
+    var widgetModel = require("../model/widget/widget.model.server");
 
     var multer = require('multer'); // npm install multer --save
     var upload = multer({ dest: __dirname+'/../../src/assets/uploads' });
-    /* John pappy's - declare APIs at top and write functions below */
-
 
     app.post("/api/page/:pageId/widget", createWidget);
     app.get("/api/page/:pageId/widget",findAllWidgetsForPage);
@@ -34,12 +32,12 @@ module.exports= function(app, models){
         var width         = req.body.width;
         var myFile        = req.file;
 
+        //Please note, you need to change the redirect url when pushing to heroku
         if(myFile == null) {
-          res.redirect("https://web-app-maker-angular-4.herokuapp.com/user/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+          res.redirect("https://localhost:5000/user/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
             //res.redirect("http://localhost:4200/user/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
             return;
         }
-
 
         var originalname  = myFile.originalname; // file name on user's computer
         var filename      = myFile.filename;     // new file name in upload folder
@@ -61,8 +59,7 @@ module.exports= function(app, models){
                     res.sendStatus(404).send(err);
                 });
 
-        res.redirect("https://web-app-maker-angular-4.herokuapp.com/user/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
-        //res.redirect("http://localhost:4200/user/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+        res.redirect("http://localhost:5000/user/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
     }
 
 

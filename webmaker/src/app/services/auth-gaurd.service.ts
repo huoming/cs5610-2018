@@ -1,6 +1,4 @@
-/**
- * Created by mayankrd on 8/9/17.
- */
+
 import { Injectable } from '@angular/core';
 import {CanActivate, Router} from '@angular/router';
 import {UserService} from './user.service.client';

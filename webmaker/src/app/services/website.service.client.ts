@@ -1,6 +1,3 @@
-/**
- * Created by mayankrd on 7/11/17.
- */
 
 import {Injectable} from "@angular/core";
 import {Http, Response} from "@angular/http";
@@ -17,10 +14,6 @@ export class WebsiteService{
   constructor(private _http : Http){
 
   }
-
-
-
-
 
   findWebsiteById(websiteId : String){
     return this._http.get(this.baseUrl+ '/api/website/'+websiteId)

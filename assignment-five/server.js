@@ -16,7 +16,7 @@ app.use(function(reg, res, next){
   next();
 })
 
-const port=process.env.PORT || '3100';
+const port=process.env.PORT || '3500';
 app.set('port', port);
 
 // Create HTTP server
@@ -28,9 +28,8 @@ const server = http.createServer(app);
 //});
 
 
-var hello = require('./hello');
-hello(app);
-
+/*var hello = require('./hello');
+hello(app);*/
 
 require("./assignment/app")(app);
 

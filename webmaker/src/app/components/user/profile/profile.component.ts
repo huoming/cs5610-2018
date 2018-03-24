@@ -71,16 +71,7 @@ export class ProfileComponent implements OnInit {
       },
       (error: any) => this.errorFlag = true
     );
-      // .toPromise()
-      // .then( data => {
-      //   this._UserService.findUserById(updatedUser._id)
-      //     .toPromise()
-      //     .then( data => {
-      //       localStorage.setItem('user', JSON.stringify(data));
-      //
-      //       this.ngOnInit();
-      //     })
-      // })
+
   }
 
 }

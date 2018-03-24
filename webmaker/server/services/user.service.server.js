@@ -13,6 +13,20 @@ module.exports = function (app) {
     callbackURL  : 'process.env.FB_CALL_BACK_URL_WAM'
   };
 
+  //helper functions -- can be removed after testing
+  app.get("/api/user/findall", findAllUsers);
+  function findAllUsers(req, res) {
+      userModel
+          .findAllUsers()
+          .then(
+              function (users) {
+                  res.send(users);
+              },
+              function (err) {
+                  res.sendStatus(400).send(err);
+              });
+  }
+
   app.post("/api/user", createUser);
   app.get("/api/user", getUsers);
   app.post("/api/logout", logout);
@@ -251,16 +265,6 @@ module.exports = function (app) {
         function (error) {
           res.statusCode(404).send(error);
         });
-
-    // for (var i in users){
-    //     if(users[i]._id === userId){
-    //         users[i].firstName = user.firstName;
-    //         users[i].lastName = user.lastName;
-    //         users[i].email = user.email;
-    //         res.send(200);
-    //     }
-    // }
-    // res.send(400);
   }
 
   function findUserById(req, res) {
@@ -274,12 +278,6 @@ module.exports = function (app) {
         function (error) {
           res.statusCode(404).send(error);
         });
-    // for (var i in users){
-    //     if(users[i]._id === id){
-    //         res.send(users[i]);
-    //         return;
-    //     }
-    // } res.send({});
   }
 
   function getUsers(req, res) {
@@ -304,16 +302,6 @@ module.exports = function (app) {
         function (err) {
           res.statusCode(404).send(err);
         });
-    // for (var i in users){
-    //     if(users[i].username === username){
-    //         res.send(users[i]);
-    //         return;
-    //     }
-    // }
-    //
-    // var errMsg = generateError(username, password);
-    // console.log(errMsg);
-    // res.send(errMsg);
   }
 
 

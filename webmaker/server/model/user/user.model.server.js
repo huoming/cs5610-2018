@@ -16,6 +16,11 @@ UserModel.updateUser = updateUser;
 UserModel.findFacebookUser=findFacebookUser;
 UserModel.deleteUser=deleteUser;
 
+//helper functions -- delete after testing
+UserModel.findAllUsers = function (){
+    return UserModel.find();
+}
+
 module.exports = UserModel;
 
 function findFacebookUser(id) {

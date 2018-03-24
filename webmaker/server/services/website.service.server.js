@@ -44,11 +44,6 @@ module.exports= function(app){
             function (err) {
                 res.sendStatus(400).send(err);
             });
-        // website._id = (new Date()).getTime()+"";
-        //
-        // websites.push(website);
-        //
-        // res.send(website);
 
     }
 

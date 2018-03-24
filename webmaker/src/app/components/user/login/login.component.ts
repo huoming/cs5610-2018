@@ -31,13 +31,13 @@ export class LoginComponent implements OnInit {
     this.password = this.loginForm.value.password;
 
     // calling client side userservice to send login information
-    console.log('data', this.username);
+    console.log('login username:    ', this.username);
     this._userService.login(this.username, this.password)
       .subscribe(
         (data: any) => {
             this.sharedService.user = data;
             this.errorFlag = false;
-            this.router.navigate(['/profile'])},
+            this.router.navigate(['/profile',data.userId])},
         (error: any) => {
           this.errorFlag = true;
         }

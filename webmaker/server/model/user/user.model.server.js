@@ -9,9 +9,8 @@ var UserModel =  mongoose.model("User", UserSchema); //mongo plurarizes
 
 UserModel.findUserById = findUserById;
 UserModel.createUser = createUser;
-//UserModel.findAllUsers = findAllUsers;
 UserModel.findUserByCredentials = findUserByCredentials;
-//UserModel.findUserByUserName = findUserByUserName;
+UserModel.findUserByUsername = findUserByUsername;
 UserModel.updateUser = updateUser;
 UserModel.findFacebookUser=findFacebookUser;
 UserModel.deleteUser=deleteUser;
@@ -31,7 +30,14 @@ function findUserById(userId) {
 }
 
 function findUserByUsername(username) {
-    return UserModel.findOne({username: username});
+    var user = null;
+    UserModel
+         .findOne({username: username})
+         .then(function (result) {
+            console.log(result);
+            user = result;
+         });
+    return user;
 }
 
 function updateUser(userId, user) {
